@@ -1,0 +1,46 @@
+﻿<div class="row">
+    <div class="col-sm-10 col-sm-offset-1">
+        <div class="row">
+            <div class="col-sm-12">
+                <input class="form-control" placeholder="Enter email or username to search" type="text"  ng-model="filterUser"/>
+            </div>
+            <div class="col-sm-6" ng-repeat="usr in users | filter : filterUser" ng-show="user.id != usr._id">
+                <table class="user-follow-section">
+                    <tr>
+                        <td>
+                            <span>
+                                <img ng-src="{{usr.image ? usr.image : '/app/img/img_not_available.png'}}" class="img-responsive" alt=" users image" />
+                            </span>
+                        </td>
+                        <td>
+                            <a class="btn btn-success btn-sm" ng-click="followUser(user.id, usr._id)"
+                               ng-hide="checkIsFollowing(usr._id)"><i class="fa fa-plus"></i> follow </a>
+                            <a class="btn btn-danger btn-sm" ng-click="unFollowUser(user.id, usr._id)"
+                               ng-show="checkIsFollowing(usr._id)"><i class="fa fa-minus"></i> unfollow</a>
+                            <h4>User Id: {{usr.username ? usr.username : 'Not Updated'}}</h4>
+                            <p>Email: {{usr.email}}</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <!--<table class="user-follow-section">
+            <tr><td colspan="2"><input class="form-control" placeholder="Enter email or username to search" type="text"/></td></tr>
+            <tr ng-repeat="usr in users" ng-show="user.id != usr._id">
+                <td>
+                    <span>
+                        <img ng-src="{{usr.image ? usr.image : '/app/img/img_not_available.png'}}" class="img-responsive" alt=" users image" />
+                    </span>
+                </td>
+                <td>
+                    <a class="btn btn-success btn-sm" ng-click="followUser(user.id, usr._id)"
+                       ng-hide="checkIsFollowing(usr._id)"><i class="fa fa-plus"></i> follow </a>
+                    <a class="btn btn-danger btn-sm" ng-click="unFollowUser(user.id, usr._id)"
+                       ng-show="checkIsFollowing(usr._id)"><i class="fa fa-minus"></i> unfollow</a>
+                    <h4>User Id: {{usr.username ? usr.username : 'Not Updated'}}</h4>
+                    <p>Email: {{usr.email}}</p>
+                </td>
+            </tr>
+        </table>-->
+    </div>
+</div>

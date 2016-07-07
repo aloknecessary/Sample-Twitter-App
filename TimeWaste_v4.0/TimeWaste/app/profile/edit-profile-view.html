@@ -1,0 +1,22 @@
+﻿<div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+        <form name="user_edit">
+            <div class="row">
+                <strong class="row">Profile picture</strong>
+                <img ng-src="{{path}}" alt="user's image" class="image-custom-border " height="150" width="150" style="margin-left: 15px" />
+
+                <div class="btn btn-info btn-sm pull-right" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'"
+                     ngf-accept="'image/*'" >{{btnText}}</div> 
+            </div>
+            <div class="row">
+                <strong>Username</strong>
+                <input class="form-control" placeholder="your username" ng-model="user.username" type="text" ng-blur ="updateUserName()"/>
+            </div>
+
+            <div class="row">
+                <strong>Biography</strong>
+                <textarea class="form-control" placeholder="your biography" ng-model="user.biography" ng-blur="updateUserBio()"></textarea>
+            </div>
+        </form>
+    </div>
+</div>

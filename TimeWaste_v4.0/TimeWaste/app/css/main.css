@@ -1,0 +1,94 @@
+.margin-top-14{
+  margin-top: 14px;
+}
+
+.margin-top-10{
+  margin-top: 10px;
+}
+
+
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
+.width-auto{
+  width: auto !important;
+  display: inline-block;
+}
+body{
+  margin-top: 70px;
+}
+.row{
+  margin-top: 10px;
+}
+body {
+    background: url('/app/img/banner-top-bg.png') center top;
+    color: #fff;
+}
+/*.banner-top {
+    background: url('/app/img/banner-top-bg.png') center top;
+    height: 450px;
+    color: #fff;
+}*/
+.banner-top .container {
+    height: 100%;
+    position: relative;
+}
+.banner-top-ninja {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+}
+.banner-top-titles {
+    margin-top: 92px;
+}
+.banner-top-title {
+    font-family:'Bitter', serif;
+    -ms-text-shadow: 1px 1px 1px #555;
+    text-shadow: 1px 1px 1px #555;
+    font-size: 3em;
+    text-align: left;
+}
+
+.banner-top-subtitle {
+    margin: 20px 0;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+
+.image-custom-border {
+    border: 10px solid transparent;
+    padding: 1px;
+    -moz-border-image-source: url('/app/img/border.png');
+    -ms-border-image-source: url('/app/img/border.png');
+    -o-border-image-source: url('/app/img/border.png');
+    -webkit-border-image-source: url('/app/img/border.png');
+    border-image-source: url('/app/img/border.png');
+    -moz-border-image-slice: 20;
+    -ms-border-image-slice: 20;
+    -o-border-image-slice: 20;
+    -webkit-border-image-slice: 20;
+    border-image-slice: 20;
+}
+
+.tweet-section img,
+.user-follow-section img {
+    height: 100px;
+    width: 100px;
+    margin-right: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.margin-top-14> a {
+        padding-left: 20px;
+}
+
+.margin-top-14 > span {
+    color: blueviolet;
+    font-weight: bold;
+}
+
+.navbar-brand {
+    cursor: pointer;
+}

@@ -1,0 +1,79 @@
+<html ng-app="TimeWaste">
+<head>
+    <title>Time Waste with MEAN development </title>
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="app/css/font-awesome.css" />
+    <link rel="stylesheet" href="app/css/main.css" />
+    <link rel="icon" type="image/x-icon" href="app/favicon.ico">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container" ng-controller="NavigationController">
+            <div class="navbar-header">
+                <a class="navbar-brand" ng-click="navigateHome()">TimeWaste v4.0</a>
+            </div>
+            <div ng-hide="userLoggedIn">
+                <ul class="nav navbar-nav">
+                    <li class="margin-top-10">
+                        <form name="login_form">
+                            <input type="email" placeholder="your email" class="form-control width-auto" ng-model="uLogin.email" required />
+                            <input type="password" placeholder="your password" class="form-control width-auto" value="" ng-model="uLogin.password" required />
+                            <button class="btn btn-info btn-sm " ng-disabled="login_form.$invalid" ng-click="login()">Login <i class="fa fa-sign-in"></i></button>
+                        </form>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a ui-sref="signUp">Create an account </a>
+                    </li>
+                </ul>
+            </div>
+            <div ng-show="userLoggedIn" class="margin-top-14">
+                <span>Welcome! Mr. {{userName}}</span>
+                <a ui-sref="editProfile">Edit Profile</a>
+                <a ui-sref="tweets">View / Post Tweets</a>
+                <a ui-sref="follow">Follow Users</a>
+                <button class="btn btn-info btn-xs pull-right" ng-click="logout()">Logout <i class="fa fa-sign-out"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="ui-view"></div>
+
+    <!--  body -->
+    <div class="banner-top" ng-controller="NavigationController">
+        <div class="container" ng-hide="userLoggedIn">
+            <img class="banner-top-ninja" src="/app/img/banner-top-ninja.png" alt="MEAN.IO">
+            <div class="banner-top-titles">
+                <h1 class="banner-top-title">The Friendly &amp; Fun Javascript Fullstack
+                        <br>
+                    for your next web application
+                </h1>
+                <h4 class="banner-top-subtitle">MEAN is an opinionated fullstack javascript framework -
+                        <br>
+                    which simplifies and accelerates web application development.
+                </h4>
+            </div>
+        </div>
+    </div>
+
+    <!-- Angular & Libraries -->
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="node_modules/ng-file-upload/dist/ng-file-upload-shim.min.js"></script>
+    <script src="node_modules/ng-file-upload/dist/ng-file-upload.min.js"></script>
+
+
+    <!-- Custom Files -->
+    <script src="app/app.js"></script>
+
+    <!-- Controllers -->
+
+    <script src="app/signup/signup-controller.js"></script>
+    <script src="app/navigation/navigation-controller.js"></script>
+    <script src="app/profile/edit-profile-controller.js"></script>
+    <script src="app/tweets/tweets-controller.js"></script>
+    <script src="app/follow/follow-controller.js"></script>
+</body>
+</html>

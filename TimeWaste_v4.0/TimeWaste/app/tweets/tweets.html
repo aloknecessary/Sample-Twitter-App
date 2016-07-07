@@ -1,0 +1,23 @@
+﻿<div class="col-sm-10 col-sm-offset-1">
+    <div class="row">
+        <textarea rows="3" ng-model="newTweet" ng-keypress="sendTweet($event)" class="form-control" placeholder="Write your tweet and press enter..">
+
+        </textarea>
+    </div>
+</div>
+
+
+<div class="col-sm-10 col-sm-offset-1">
+    <div class="row">
+        <table class="tweet-section">
+            <tr ><a ng-show="incomingTweets" ng-click="setNewTweets()"> There are {{difference}} new tweets </a></tr>
+            <tr ng-repeat ="tweet in tweets">
+                <td>@{{tweet.user}}
+                    <span><img ng-src="{{tweet.userImage ? tweet.userImage : '/app/img/img_not_available.png'}}" class="img-responsive" alt=" users image"/></span>
+                </td>
+                <td> <p>{{tweet.content}}</p><br/><strong>{{tweet.date | date: "MM/dd/yyyy 'at' hh:mm:a"}}</strong>
+                </td>
+            </tr>
+        </table>
+</div>
+</div>

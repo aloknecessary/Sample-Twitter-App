@@ -1,0 +1,2 @@
+D:\Alok\My Practice Projects\TimeWaste_v3.0\TimeWaste\bin\Microsoft.NodejsTools.WebRole.dll
+D:\Alok\My Practice Projects\TimeWaste_v3.0\TimeWaste\obj\Debug\TimeWaste_v3.0.njsprojResolveAssemblyReference.cache
