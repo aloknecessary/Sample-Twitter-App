@@ -20,11 +20,11 @@
                             request.following = angular.copy($scope.user.following);
                             request.following.push({ userId: $scope.user.id });
                         }
-                        $http.post('/api/tweets/post', request).success(function(resp) {
-                            console.log(resp);
-                            $scope.tweets = resp;
+                        $http.post('/api/tweets/post', request).then(function(resp) {
+                            console.log(resp.data);
+                            $scope.tweets = resp.data;
                             $scope.newTweet = '';
-                        }).error(function(error) {
+                        }, function(error) {
                             console.log(error);
                         });
                     }
@@ -36,15 +36,15 @@
                         data.following = angular.copy($scope.user.following);
                         data.following.push({ userId: $scope.user.id });
                     }
-                    $http.post('/api/tweets/get', data).success(function(resp) {
+                    $http.post('/api/tweets/get', data).then(function(resp) {
                         if (initial) {
-                            $scope.tweets = resp;
+                            $scope.tweets = resp.data;
                         } else {
-                            if (resp.length > $scope.tweets.length) {
-                                $scope.incomingTweets = resp;
+                            if (resp.data.length > $scope.tweets.length) {
+                                $scope.incomingTweets = resp.data;
                             }
                         }
-                    }).error(function() {
+                    }, function() {
 
                     });
                 };

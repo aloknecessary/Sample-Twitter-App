@@ -7,13 +7,12 @@
                     // console.log($scope.newUser);
                     $scope.saving = true;
                     $http.post('api/user/signup', $scope.newUser)
-                        .success(function(resp) {
-                            console.log('created user with email ' + resp);
+                        .then(function(resp) {
+                            console.log('created user with email ' + resp.data);
                             $scope.saving = false;
-                            $window.alert('created user with email ' + resp);
+                            $window.alert('created user with email ' + resp.data);
                             $window.location.href = "/";
-                        })
-                        .error(function(error) {
+                        }, function(error) {
                             console.log(error);
                             $scope.saving = false;
                             $window.alert('Oops! something went wrong...');

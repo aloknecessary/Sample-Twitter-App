@@ -15,19 +15,18 @@
             
             $scope.login = function () {
                 // console.log($scope.uLogin);
-                $http.post('api/user/login', $scope.uLogin)
-                        .success(function (resp) {
-                    if (resp === "invalid request") {
+                $http.post('api/user/login', $scope.uLogin).then(function (resp) {
+                    if (resp.data === "invalid request") {
                         console.log('Invalid user data');
-                        $window.alert(resp);
+                        $window.alert(resp.data);
                         return false;
                     }
-                    localStorage.setItem('user-data', JSON.stringify(resp));
+                    localStorage.setItem('user-data', JSON.stringify(resp.data));
                     console.log('logged in');
                     $rootScope.userLoggedIn = true;
                     var user = JSON.parse(localStorage['user-data']);
                     $scope.userName = user.username === "" ? user.email : user.username;
-                }).error(function (error) {
+                }, function (error) {
                     console.error(error);
                 });
             };

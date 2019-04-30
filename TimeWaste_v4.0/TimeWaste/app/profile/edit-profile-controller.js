@@ -34,12 +34,12 @@
                     userId: $scope.user.id,
                     userName: $scope.user.username
                 };
-                $http.put('/api/profile/updateUsername', request).success(function(data) {
+                $http.put('/api/profile/updateUsername', request).then(function(resp) {
                     console.log("Success");
                     var editedInfo = JSON.parse(localStorage['user-data']);
                     editedInfo.username = $scope.user.username;
                     localStorage.setItem('user-data', JSON.stringify(editedInfo));
-                }).error(function(error) {
+                }, function(error) {
                     console.log(error);
                 });
             };
@@ -49,12 +49,12 @@
                     userId: $scope.user.id,
                     userBio: $scope.user.biography
                 };
-                $http.put('/api/profile/updateUserbio', request).success(function (data) {
+                $http.put('/api/profile/updateUserbio', request).then(function (resp) {
                     console.log("Success");
                     var editedInfo = JSON.parse(localStorage['user-data']);
                     editedInfo.biography = $scope.user.biography;
                     localStorage.setItem('user-data', JSON.stringify(editedInfo));
-                }).error(function (error) {
+                }, function (error) {
                     console.log(error);
                 });
             };
@@ -65,12 +65,12 @@
 
             $scope.getUserImage = function () {
                 
-                $http.get('/api/profile/getUserImage?userId=' + $scope.user.id).success(function (data) {
-                    $scope.path = $scope.server + data.imgUrl;
-                    if (data.imgUrl.indexOf('/uploads') >= 0) {
+                $http.get('/api/profile/getUserImage?userId=' + $scope.user.id).then(function (resp) {
+                    $scope.path = $scope.server + resp.data.imgUrl;
+                    if (resp.data.imgUrl.indexOf('/uploads') >= 0) {
                         $scope.btnText = "Change Image";
                     }
-                }).error(function (error) {
+                }, function (error) {
                     console.log(error);
                 });
             };

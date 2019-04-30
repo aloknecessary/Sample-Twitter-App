@@ -2,11 +2,11 @@
     angular.module('TimeWaste')
         .controller('FollowController', [
         '$scope', '$http', function ($scope, $http) {
-            $http.get('/api/users/get').success(function (resp) {
+            $http.get('/api/users/get').then(function (resp) {
                 $scope.user = JSON.parse(localStorage['user-data']);
-                $scope.users = resp;
+                $scope.users = resp.data;
                 //console.log($scope.users);
-            }).error(function (err) {
+            }, function (err) {
                 console.log(err);
                 $window.alert(err);
             });
@@ -16,12 +16,12 @@
                     myId: myId,
                     followId: followingId
                 };
-                $http.post('api/users/follow', request).success(function (resp) {
+                $http.post('api/users/follow', request).then(function (resp) {
                     console.log("following " + followingId);
                     $scope.user.following.push({ userId: followingId });
                     localStorage.setItem('user-data', JSON.stringify($scope.user));
                     $scope.checkIsFollowing(followingId);
-                }).error(function (err) {
+                }, function (err) {
                     console.log(err);
                     $window.alert(err);
                 });
@@ -41,19 +41,18 @@
                     unfollowId: unfollowId
                 };
                 $http.post('api/users/unfollow', request)
-                .success(function (resp) {
-                        console.log(resp);
+                .then(function (resp) {
+                        console.log(resp.data);
                         //var remainingFollows = [];
                         //$scope.user.following.filter(function(item) {
                         //    if (item.userId !== unfollowId) {
                         //        remainingFollows.push({ userId: item.userId });
                         //    }
                         //});
-                    $scope.user.following = resp.remaingFollows;
+                    $scope.user.following = resp.data.remaingFollows;
                     localStorage.setItem('user-data', JSON.stringify($scope.user));
                     $scope.checkIsFollowing(unfollowId);
-                })
-                .error(function (err) {
+                }, function (err) {
                     console.log(err);
                     $window.alert(err);
                 });
