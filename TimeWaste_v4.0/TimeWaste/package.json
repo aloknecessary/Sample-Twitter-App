@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "author": "Alok Ranjan",
   "dependencies": {
-    "angular": "^1.5.7",
+    "angular": "^1.8.3",
     "angular-ui-router": "^0.3.1",
     "angular-validation": "^1.4.1",
     "body-parser": "^1.20.3",
