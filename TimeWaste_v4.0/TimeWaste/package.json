@@ -4,7 +4,7 @@
   "author": "Alok Ranjan",
   "dependencies": {
     "angular": "^1.8.3",
-    "angular-ui-router": "^0.3.1",
+    "angular-ui-router": "^1.0.30",
     "angular-validation": "^1.4.5",
     "body-parser": "^1.20.3",
     "bootstrap": "^3.3.6",
