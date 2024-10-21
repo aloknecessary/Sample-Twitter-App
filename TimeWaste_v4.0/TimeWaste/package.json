@@ -11,7 +11,7 @@
     "connect-multiparty": "^2.0.0",
     "express": "^4.21.1",
     "fs-extra": "^0.30.0",
-    "mongoose": "^8.7.1",
+    "mongoose": "^8.7.2",
     "ng-file-upload": "^12.0.4",
     "path": "^0.12.7"
   }
